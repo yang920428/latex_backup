@@ -8,6 +8,7 @@
 \usepackage{paracol} % 用於分欄
 \usepackage{geometry} % 用於調整頁面尺寸和邊距
 \usepackage{amsmath}
+\usepackage{titlesec}
 
 \newtheorem{example}{example}             % 整体编号
 \newtheorem{algorithm}{algorithm}
@@ -31,6 +32,8 @@
 \setlength{\partopsep}{0pt} % 環境和上下文之間的額外距離
 \setlength{\itemsep}{0.5em} % 項目之間的距離
 \setlength{\parsep}{0pt} % 段落之間的距離
+
+\titlespacing*{\section}{0pt}{0pt}{0pt}
 
 % 設定頁面尺寸和邊距
 \geometry{
@@ -245,6 +248,87 @@
 \section*{Tree}
 \begin{paracol}{2} % 第二部分分欄
     \switchcolumn[0]
+
+    \begin{theorem}
+         For a set S $\subseteq$ N of size n, there are $n^{n-2}$ trees with vertex set S.
+    \end{theorem}
+
+    \begin{lemma}
+        Vertex v is a leaf of a tree T $\iff$ v is missing in $T's$ Prufer code f(T).
+    \end{lemma}
+
+    \begin{lemma}
+        Let S $\subseteq$ N and n=|S|. Prufer algorithm f : \{trees with vertex set S\} → $S^{n-2}$
+ is a bijection and thus Cayley's Formula holds.
+    \end{lemma}    
+
+    \begin{definition}
+         $\tau$(G): the number of spanning trees of connected graph G
+    \end{definition}
+
+    \begin{definition}
+        M(x|y) is the matrix obtained from M by deleting row (set) x and deleting
+ column (set) y.
+
+ M(x|y] is the matrix obtained from M by deleting row (set) x and keeping
+ column (set) y.
+
+ M[x|y) is the matrix obtained from M by keeping row (set) x and deleting
+ column (set) y.
+
+ M[x|y] is the matrix obtained from M by keeping row (set) x and keeping
+ column (set) y.
+
+ [•| means keeping all rows
+ 
+ |•] means keeping all columns
+    \end{definition}
+
+    \switchcolumn
+
+    \begin{theorem}
+        Given a loopless graph G with vertex set v1,...,vn, let ai,j be the number of
+ edges with endpoints vi and vj. Let L be the matrix in which Li,j is -ai,j if
+ i $\neq$ j and is deg(vi) when i = j. Then
+ $\tau(G) = (-1)^{s+t}detL(s|t)$
+ for any row s and any column t.
+    \end{theorem}
+
+    \begin{lemma} 
+        Let \( C_{n \times n} = A_{n \times m} B_{m \times n} \). Then
+        \[
+        \det C = \sum_{S \in \binom{[m]}{n}} \det A[\bullet |S] \det B[S| \bullet]
+        \]
+
+        where $\binom{[m]}{n}$ denote the set of all n-element subsets of [m].
+    \end{lemma}
+
+    \begin{theorem}
+        Let G =(V,E) be a connected graph and w : E(G) → R be a weight function.
+ Let A $\subset$E(G) be contained in some minimum spanning tree for G, let
+ [S, V -S] be a cut s.t. no edge in A crosses [S,V -S]. Suppose that uv is a
+ cheapest edge crossing [S,V - S] , then A $\cup$ \{uv\} is contained in some
+ minimum spanning tree for G.
+    \end{theorem}
+
+    \begin{definition}
+         A minimum connected spanning subgraph (MCSS) of a weighted connected
+ graph G is a connected spanning subgraph with minimum total edge weight.
+    \end{definition}
+
+    \begin{lemma}
+        If all edge weights of a connected graph G are positive, then MCSS of G is
+ equivalent to MST of G.
+    \end{lemma}
+
+    \begin{lemma}
+        If all edge weights of a connected graph G are nonnegative, then every MCSS
+ of G contains an MST of G.
+    \end{lemma}
+
+    \begin{lemma}
+         Every MCSS of G contains all edges with negative weight.
+    \end{lemma}
     % 左欄內容
     % \begin{definition}
     %     這是第二章左欄的定義示例。
