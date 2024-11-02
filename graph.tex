@@ -1,6 +1,6 @@
 % !TEX root = graph.tex
 
-\documentclass[twocolumn][2pt]{article}
+\documentclass[twocolumn]{article}
 \usepackage{graphicx} % Required for inserting images
 \usepackage{CJKutf8}
 % \usepackage{amsthm}
@@ -24,8 +24,10 @@
 \newtheorem{conclusion}{conclusion}
 \newtheorem{assumption}{assumption}
 \newtheorem{formula}{formula}
+\newtheorem{problem}{problem}
+\newtheorem{solution}{solution}
 
-\linespread{0.7}
+\linespread{0.5}
 % \setlength{\parskip}{0.001em}
 
 \setlength{\topsep}{0.1em} % 環境之上和之下的距離
@@ -58,7 +60,7 @@
 % \maketitle
 
 % 第一部分（Chapter 1）
-\section*{Fundamentals}
+\section{Fundamentals}
 
     % \switchcolumn[0]
     % 左欄內容
@@ -245,7 +247,7 @@
 % \vspace{2cm} % 分隔不同章節
 
 % 第二部分（Chapter 2）
-\section*{Tree}
+\section{Tree}
 % \begin{multicol}{2} % 第二部分分欄
     % \switchcolumn[0]
 
@@ -345,22 +347,181 @@
 % \vspace{2cm} % 分隔不同章節
 
 % 第三部分（Chapter 3）
-\section*{Matching and factor}
-% \begin{multicol}{2} % 第三部分分欄
-    % \switchcolumn[0]
-    % 左欄內容
-    % \begin{definition}
-    %     這是第三章左欄的定義示例。
-    % \end{definition}
-    % 這是第三章的左欄內容示例。
+\section{Matching and factor}
+    \begin{definition}
+        A matching in a graph G is a set of non-loop edges with no shared endpoints.
+ The vertices incident to the edges of a matching M are saturated by M or
+ M-saturated; the others are M-unsaturated. A perfect matching in a graph is
+ a matching that saturates every vertex. The size of a matching is the number
+ of edges in it.
+    \end{definition}
 
-    % \switchcolumn
-    % % 右欄內容
-    % 這是第三章的右欄內容示例。
-    % \begin{definition}
-    %     這是第三章右欄的另一個定義示例。
-    % \end{definition}
-% \end{multicol}
+    \begin{definition}
+        A maximal matching in a graph is a matching that cannot be enlarged by
+ adding an edge. A maximum matching is a matching of maximum size among
+ all matchings in a graph.
+    \end{definition}
+
+    \begin{definition}
+        Given a matching M, an M-alternating path is a path that alternates between
+ edges in M and edges not in M. An M-alternating path whose endpoints are
+ unsaturated by M is an M-augmenting path.
+    \end{definition}
+
+    \begin{definition}
+        Given two matching M,M', the symmetric difference of M,M' is
+ (M -M') $\cup$(M'-M), i.e., the edges in M but not M' and the edges in M'
+ but not M.
+    \end{definition}
+
+    \begin{lemma}
+        Every (nontrivial) component of the symmetric difference of two matchings
+ M,M' is a path or an even cycle.
+    \end{lemma}
+
+    \begin{theorem}
+        A matching M in a graph G is maximum $\iff$ G has no M-augmenting path.
+    \end{theorem}
+
+    \begin{theorem}
+         An X,Y-bigraph G has a matching that saturates X $\iff$ |N(S)| $\geq$ |S| for all
+ S $\subseteq$ X.
+    \end{theorem}
+
+    \begin{corollary}
+        An X,Y-bigraph G, where |X| = |Y|, has a perfect matching $\iff$ |N(S)| $\geq$ |S|
+ for all S $\subseteq$ X.
+    \end{corollary}
+
+    \begin{definition}
+        System of Distinct Representatives (SDR)
+ There are n clubs in XXX University. An SDR is a set of distinct club
+ representatives, one for each club.
+    \end{definition}
+
+    \begin{theorem}
+        An SDR exists $\iff$ for every set S of clubs, the size of the unions of their
+ members is at least |S|.
+    \end{theorem}
+
+    \begin{definition}
+        An n$\times$n 0-1 matrix A does not contain an n$\times$n permutation matrix $\iff$ A
+ has an r $\times$s all-zeros submatrix with r +s > n.
+    \end{definition}
+
+    \begin{corollary}
+         For k > 0, every k-regular bipartite graph has a perfect matching.
+    \end{corollary}
+
+    \begin{definition}
+         A decomposition of a graph is a list of subgraphs s.t. every edge appears in
+ exactly one subgraph in the list.
+    \end{definition}
+
+    \begin{corollary}
+        A k-regular bipartite graph G can be decomposed into k perfect matchings.
+    \end{corollary}
+
+    \begin{definition}
+        A vertex cover of a graph G is a set Q $\subseteq$ V(G) that contains at least one
+ endpoint of every edge. The vertices in Q cover E(G).
+ Trivially, V (G) is a vertex cover of G. The minimum cardinality of a vertex
+ cover of G is denoted by $\beta(G)$.
+    \end{definition}
+
+    \begin{definition}
+        $\alpha$(G): maximum size of independent set
+
+ $\alpha$'(G): maximum size of matching
+ $\beta$(G): minimum size of vertex cover
+ $\beta$'(G): minimum size of edge cover
+    \end{definition}
+
+    \begin{lemma}
+        In a graph G, S $\subseteq$ V(G) is an independent set $\iff$ V(G)-S is a vertex cover,
+ and hence $\alpha$(G)+$\beta$(G) = n(G).
+    \end{lemma}
+
+    \begin{theorem}
+        If G is a bipartite graph, then the maximum size of a matching in G is equal
+ to the minimum size of a vertex cover of G, i.e., $\alpha$'(G) = $\beta$(G).
+    \end{theorem}
+
+    \begin{corollary}
+         If we find a matching and a vertex cover, both of size k, in bipartite graph G,
+ then $\alpha$'(G) = $\beta$(G) = k.
+    \end{corollary}
+
+    \begin{definition}
+        An edge cover of G is a set L of edges s.t. every vertex of G is incident to
+ some edge of L.
+ The minimum size of edge cover of G is denoted by $\beta$'(G).
+    \end{definition}
+
+    \begin{theorem}
+        If G is a graph without isolated vertices, then $\alpha$'(G) + $\beta$'(G) = n(G), i.e., the
+ maximum size of matching and the minimum size of edge cover sum up to the
+ order of G.
+    \end{theorem}
+
+    \begin{corollary}
+        If G is a bipartite graph with no isolated vertices, then $\alpha$(G) = $\beta$'(G), i.e., the
+ size of maximum independent set is equal to the size of minimum edge cover.
+    \end{corollary}
+
+    \begin{corollary}
+        If we find an independent set and an edge cover, both of size k, in bipartite
+ graph G without isolated vertices, then $\alpha$(G) = $\beta$'(G) = k.
+    \end{corollary}
+
+    \begin{definition}
+        A factor of a graph G is a spanning subgraph of G, i.e., with vertex set V (G).
+ A k-factor is a spanning k-regular subgraph. An odd component of a graph is
+ a component of odd order; the number of odd component of G is denoted o(G).
+
+ 1-factor are almost same as perfect matching:
+
+ 1-factor: subgraph
+ 
+ perfect matching: set of edges
+    \end{definition}
+
+\section{HW}
+\subsection{hw1}
+    \begin{problem}
+ Prove that no bipartite graph contains an odd cycle    
+    \end{problem}
+    
+    \begin{solution}
+    Suppose that A, B-bigraph G contains an odd cycle C = (v1, v2, . . . , v 2k+1). Without loss of generality suppose that v1 $\in$ A. Since G is bipartite and v1 v2 $\in$ E(G), v2 $\in$ B. Similarly, v2 v3 $\in$ E(G)
+and thus v3 $\in$ A, and so on. So v2k+1 $\in$ A. However v1 v2k+1 $\in$ E(G) and yet v1, v 2k+1 $\in$ A, a
+contradiction to the hypothesis that G is an A, B-bigraph.
+
+    \end{solution}
+    
+\subsection{hw2}
+    \begin{problem}
+        Given a simple graph G, $\bar{G}$ is the simple graph with vertex set V(G) such that for any distinct
+ vertices u,v $\in$ V (G), u,v are adjacent in $\bar{G}$ if and only if u,v are not adjacent in G.
+ Prove that at least one of G and $\bar{G}$ is connected.
+    \end{problem}
+
+    \begin{solution}
+        If G is connected then we are done, so suppose that G is disconnected and has multiple components.
+We aim to prove that any pair of vertices x, y are connected in $\bar{G}$. If x, y belong to different
+components in G, then xy $\notin$ E(G) and xy $\in$ E($\bar{G}$). If x, y belong to the same component C in G,
+then fix a vertex v in a different component in G. Both x, y are adjacent to v in $\bar{G}$, thus x, y are
+connected in $\bar{G}$.
+
+    \end{solution}
+
+\subsection{hw3}
+
+\subsection{hw4}
+
+\subsection{hw5}
+
+\subsection{hw6}
 
 \end{CJK*}
 \end{document}
