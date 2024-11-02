@@ -1,11 +1,11 @@
 % !TEX root = graph.tex
 
-\documentclass[2pt]{article}
+\documentclass[twocolumn][2pt]{article}
 \usepackage{graphicx} % Required for inserting images
 \usepackage{CJKutf8}
 % \usepackage{amsthm}
 \usepackage{mdframed}
-\usepackage{paracol} % 用於分欄
+\usepackage{multicol} % 用於分欄
 \usepackage{geometry} % 用於調整頁面尺寸和邊距
 \usepackage{amsmath}
 \usepackage{titlesec}
@@ -59,8 +59,8 @@
 
 % 第一部分（Chapter 1）
 \section*{Fundamentals}
-\begin{paracol}{2} % 開始分欄
-    \switchcolumn[0]
+
+    % \switchcolumn[0]
     % 左欄內容
     % \newtheorem{definition}{def}
     \begin{definition}
@@ -142,7 +142,7 @@
         A walk W is a path $\iff$ it does not have repeated vertices.
     \end{lemma}
 
-    \switchcolumn
+    % \switchcolumn
 
     \begin{lemma}
         Every u,v-walk W contains a u,v-path.
@@ -241,13 +241,13 @@
     % 右欄內容
     
     
-\end{paracol}
-\vspace{2cm} % 分隔不同章節
+
+% \vspace{2cm} % 分隔不同章節
 
 % 第二部分（Chapter 2）
 \section*{Tree}
-\begin{paracol}{2} % 第二部分分欄
-    \switchcolumn[0]
+% \begin{multicol}{2} % 第二部分分欄
+    % \switchcolumn[0]
 
     \begin{theorem}
          For a set S $\subseteq$ N of size n, there are $n^{n-2}$ trees with vertex set S.
@@ -284,7 +284,7 @@
  |•] means keeping all columns
     \end{definition}
 
-    \switchcolumn
+    % \switchcolumn
 
     \begin{theorem}
         Given a loopless graph G with vertex set v1,...,vn, let ai,j be the number of
@@ -341,13 +341,13 @@
     % \begin{definition}
     %     這是第二章右欄的另一個定義示例。
     % \end{definition}
-\end{paracol}
-\vspace{2cm} % 分隔不同章節
+% \end{multicol}
+% \vspace{2cm} % 分隔不同章節
 
 % 第三部分（Chapter 3）
 \section*{Matching and factor}
-\begin{paracol}{2} % 第三部分分欄
-    \switchcolumn[0]
+% \begin{multicol}{2} % 第三部分分欄
+    % \switchcolumn[0]
     % 左欄內容
     % \begin{definition}
     %     這是第三章左欄的定義示例。
@@ -360,7 +360,7 @@
     % \begin{definition}
     %     這是第三章右欄的另一個定義示例。
     % \end{definition}
-\end{paracol}
+% \end{multicol}
 
 \end{CJK*}
 \end{document}
