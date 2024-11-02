@@ -24,8 +24,13 @@
 \newtheorem{assumption}{assumption}
 \newtheorem{formula}{formula}
 
-\linespread{1}
-\setlength{\parskip}{0.01em}
+\linespread{0.7}
+% \setlength{\parskip}{0.001em}
+
+\setlength{\topsep}{0.1em} % 環境之上和之下的距離
+\setlength{\partopsep}{0pt} % 環境和上下文之間的額外距離
+\setlength{\itemsep}{0.5em} % 項目之間的距離
+\setlength{\parsep}{0pt} % 段落之間的距離
 
 % 設定頁面尺寸和邊距
 \geometry{
@@ -59,7 +64,7 @@
         The degree of vertex u, denoted deg(u), is the number of edges that are
  incident to u, except that each loop at u counts twice.
     \end{definition}
-    
+
     \begin{definition}
     The size of G is the number of its edges, usually denoted as e(G) or |E(G)|.
     \end{definition}
