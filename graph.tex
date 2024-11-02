@@ -1,0 +1,277 @@
+% !TEX root = graph.tex
+
+\documentclass[2pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{CJKutf8}
+% \usepackage{amsthm}
+\usepackage{mdframed}
+\usepackage{paracol} % 用於分欄
+\usepackage{geometry} % 用於調整頁面尺寸和邊距
+\usepackage{amsmath}
+
+\newtheorem{example}{example}             % 整体编号
+\newtheorem{algorithm}{algorithm}
+\newtheorem{theorem}{theorem}[section]  % 按 section 编号
+\newtheorem{definition}{definition}
+\newtheorem{axiom}{axiom}
+\newtheorem{property}{property}
+\newtheorem{proposition}{proposition}
+\newtheorem{lemma}{lemma}
+\newtheorem{corollary}{corollary}
+\newtheorem{remark}{remark}
+\newtheorem{condition}{condition}
+\newtheorem{conclusion}{conclusion}
+\newtheorem{assumption}{assumption}
+\newtheorem{formula}{formula}
+
+\linespread{1}
+\setlength{\parskip}{0.01em}
+
+% 設定頁面尺寸和邊距
+\geometry{
+    top=0.5cm,
+    bottom=0.5cm,
+    left=0.5cm,
+    right=0.5cm
+}
+
+
+% 自定義 "Definition" 環境
+% \newmdtheoremenv{definition}{Definition}
+% \theoremstyle{mystyle}
+
+\title{}
+% \author{}
+% \date{}
+
+\begin{document}
+\begin{CJK*}{UTF8}{bkai}
+
+% \maketitle
+
+% 第一部分（Chapter 1）
+\section*{Fundamentals}
+\begin{paracol}{2} % 開始分欄
+    \switchcolumn[0]
+    % 左欄內容
+    % \newtheorem{definition}{def}
+    \begin{definition}
+        The degree of vertex u, denoted deg(u), is the number of edges that are
+ incident to u, except that each loop at u counts twice.
+    \end{definition}
+    
+    \begin{definition}
+    The size of G is the number of its edges, usually denoted as e(G) or |E(G)|.
+    \end{definition}
+    
+    \begin{definition}
+        The order of a graph G is the number of its vertices, usually denoted as n,
+ n(G), or |V (G)|.
+    \end{definition}
+    
+    \begin{formula}
+    \[
+    \sum_{v \in V(G)} \deg(v) = 2 |E(G)|
+    \]
+    \end{formula}
+
+    \begin{definition}
+        A complete graph Kn is a graph of order n s.t. every pair of vertices are
+ adjacent.
+    \end{definition}
+
+    \begin{definition}
+        A path Pn is a graph s.t. V(Pn) = {v1,v2,...,vn} and
+ E(Pn) = $\{v_{1}v_{2},v_{2}v_{3},...,v_{n−2}v_{n−1},v_{n−1}v_{n}\}$
+    \end{definition}
+
+    \begin{definition}
+        A cycle Cn is a graph obtained from Pn by adding edge vn v1.
+    \end{definition}
+
+    \begin{definition}
+     A graph H is a subgraph of G if H can be obtained from G by deleting any
+ number of vertices (and their incident edges) and any number of remaining
+ edges. We say G contains H, H $\subseteq$ G, or just G has H.        
+    \end{definition}
+    
+    \begin{definition}
+        Let T $\subseteq$ V(G). A graph H is a induced subgraph of G if H can be obtained
+ from G by deleting all vertices not in T. We write H = G[T], or H is the
+ subgraph of G induced by T.       
+    \end{definition}
+
+    \begin{definition}
+         Intuitively if graphs G and H are equivalent except for names, we say G is
+ isomorphic to H, there is an isomorphism from H to G, or G and H are
+ isomorphic. We denote it as G $\cong$ H
+    \end{definition}
+
+    \begin{theorem}
+        A graph G is bipartite $\iff$ it has no odd cycle.
+    \end{theorem}
+
+    \begin{definition}
+        A walk is a list v0,e1,v1,e2,v2,...,ek,vk of vertices and edges s.t. for each
+ 1 $\leq$i$\leq$k, the edge ei has endpoints vi−1 and vi.
+    \end{definition}
+
+    \begin{definition}
+        A trail is a walk without repeated edges.
+    \end{definition}
+
+    \begin{definition}
+         A path is a trail without repeated vertices.
+    \end{definition}
+
+    \begin{definition}
+         A u,v-walk, u,v-trail, or u,v-path is a walk, trail, or path that starts and ends
+ at vertices u and v, respectively. u can be identical to v. The length of a walk
+ is the number of edges it contains.
+    \end{definition}
+
+    \begin{lemma}
+        A walk W is a path $\iff$ it does not have repeated vertices.
+    \end{lemma}
+
+    \switchcolumn
+
+    \begin{lemma}
+        Every u,v-walk W contains a u,v-path.
+    \end{lemma}
+
+    \begin{definition}
+         A graph G is connected if it has a u,v-path(walk) for every u,v $\in$ V(G).
+ Otherwise it is disconnected. If G has a u,v-path(walk) then u is connected to
+ v.
+    \end{definition}
+
+    \begin{definition}
+        The connection relation between vertices is transitive, reflexive, and
+ symmetric. So it is an equivalence relation and defines equivalence classes,
+ which we call connected components.
+    \end{definition}
+
+    \begin{lemma}
+         Every graph with n vertices and k edges has at least n −k components, i.e.
+ $e(G) +c(G) \geq n(G)$.
+    \end{lemma}
+
+    \begin{definition}
+         c(G) = number of components in G
+    \end{definition}
+
+    \begin{lemma}
+         Every closed odd walk W contains an odd cycle.
+    \end{lemma}
+
+    \begin{definition}
+        A graph is Eulerian if it has a closed trail containing all edges. We call a
+ closed trail a circuit if we do not specify the first vertex but keep the list in
+ cyclic order. An Eulerian circuit or Eulerian trail is a circuit or trail
+ containing all the edges.
+    \end{definition}
+
+    \begin{definition}
+        An even graph is a graph with vertex degrees all even. A vertex is odd/even
+ when its degree is odd/even.
+    \end{definition}
+
+    \begin{lemma}
+        If every vertex of a graph G has a degree at least 2, then G contains a cycle.
+    \end{lemma}
+
+    \begin{definition}
+         A component or graph is trivial if it has no edges; otherwise it is nontrivial.
+ An isolated vertex is a vertex of degree 0.
+    \end{definition}
+
+    \begin{theorem}
+        A graph G is Eulerian $\iff$ it has at most one nontrivial component and its
+ vertices all have even degree.
+    \end{theorem}
+    
+    \begin{definition}
+        A decomposition of a graph is a list of subgraphs s.t. every edge appears in
+ exactly one subgraph in the list.
+    \end{definition}
+
+    \begin{definition}
+        A tournament is a digraph where there is an edge between every pair of
+ vertices.
+    \end{definition}
+
+    \begin{definition}
+         A king in a digraph is a vertex from which every vertex is reachable by a path
+ of length at most 2.
+    \end{definition}
+
+    \begin{proposition}
+        Every tournament has a king.
+    \end{proposition}
+
+    \begin{definition}
+         A sequence d = (d1,d2,...,dn) is graphic if it is the degree sequence of some
+ simple graph.
+    \end{definition}
+
+    \begin{theorem}
+         For n >1, an integer list d of size n is graphic $\iff$ $d\prime$ is graphic, where $d\prime$ is
+ obtained from d by deleting its largest element $\Delta$ and subtracting 1 from its $\Delta$
+ next largest elements. The only 1-element graphic sequence is d = (0).
+    \end{theorem}
+
+    \begin{definition}
+         A cut-edge or cut-vertex of a graph is an edge or vertex whose deletion
+ increases the number of components.
+    \end{definition}
+
+    \begin{theorem}
+        An edge e is a cut-edge $\iff$ it belongs to no cycle.
+    \end{theorem}
+
+    % 右欄內容
+    
+    
+\end{paracol}
+\vspace{2cm} % 分隔不同章節
+
+% 第二部分（Chapter 2）
+\section*{Tree}
+\begin{paracol}{2} % 第二部分分欄
+    \switchcolumn[0]
+    % 左欄內容
+    % \begin{definition}
+    %     這是第二章左欄的定義示例。
+    % \end{definition}
+    % 這是第二章的左欄內容示例。
+
+    % \switchcolumn
+    % % 右欄內容
+    % 這是第二章的右欄內容示例。
+    % \begin{definition}
+    %     這是第二章右欄的另一個定義示例。
+    % \end{definition}
+\end{paracol}
+\vspace{2cm} % 分隔不同章節
+
+% 第三部分（Chapter 3）
+\section*{Matching and factor}
+\begin{paracol}{2} % 第三部分分欄
+    \switchcolumn[0]
+    % 左欄內容
+    % \begin{definition}
+    %     這是第三章左欄的定義示例。
+    % \end{definition}
+    % 這是第三章的左欄內容示例。
+
+    % \switchcolumn
+    % % 右欄內容
+    % 這是第三章的右欄內容示例。
+    % \begin{definition}
+    %     這是第三章右欄的另一個定義示例。
+    % \end{definition}
+\end{paracol}
+
+\end{CJK*}
+\end{document}
