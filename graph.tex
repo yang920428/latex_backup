@@ -117,7 +117,7 @@
  isomorphic. We denote it as G $\cong$ H
     \end{definition}
 
-    \begin{theorem}
+    \begin{theorem}{(Konig's Theorem on bipartite graphs)}
         A graph G is bipartite $\iff$ it has no odd cycle.
     \end{theorem}
 
@@ -196,7 +196,7 @@
  An isolated vertex is a vertex of degree 0.
     \end{definition}
 
-    \begin{theorem}
+    \begin{theorem}{(Euler's Theorem)}
         A graph G is Eulerian $\iff$ it has at most one nontrivial component and its
  vertices all have even degree.
     \end{theorem}
@@ -225,7 +225,7 @@
  simple graph.
     \end{definition}
 
-    \begin{theorem}
+    \begin{theorem}{(Havel-Hakimi)}
          For n >1, an integer list d of size n is graphic $\iff$ $d\prime$ is graphic, where $d\prime$ is
  obtained from d by deleting its largest element $\Delta$ and subtracting 1 from its $\Delta$
  next largest elements. The only 1-element graphic sequence is d = (0).
@@ -251,7 +251,7 @@
 % \begin{multicol}{2} % 第二部分分欄
     % \switchcolumn[0]
 
-    \begin{theorem}
+    \begin{theorem}{(Cayley's Formula,)}
          For a set S $\subseteq$ N of size n, there are $n^{n-2}$ trees with vertex set S.
     \end{theorem}
 
@@ -288,7 +288,7 @@
 
     % \switchcolumn
 
-    \begin{theorem}
+    \begin{theorem}{(Matrix Tree theorem)}
         Given a loopless graph G with vertex set v1,...,vn, let ai,j be the number of
  edges with endpoints vi and vj. Let L be the matrix in which Li,j is -ai,j if
  i $\neq$ j and is deg(vi) when i = j. Then
@@ -296,7 +296,7 @@
  for any row s and any column t.
     \end{theorem}
 
-    \begin{lemma} 
+    \begin{lemma}{(Binet-Cauchy Formula)}
         Let \( C_{n \times n} = A_{n \times m} B_{m \times n} \). Then
         \[
         \det C = \sum_{S \in \binom{[m]}{n}} \det A[\bullet |S] \det B[S| \bullet]
@@ -305,7 +305,7 @@
         where $\binom{[m]}{n}$ denote the set of all n-element subsets of [m].
     \end{lemma}
 
-    \begin{theorem}
+    \begin{theorem}{(MST-preservingTheorem)}
         Let G =(V,E) be a connected graph and w : E(G) → R be a weight function.
  Let A $\subset$E(G) be contained in some minimum spanning tree for G, let
  [S, V -S] be a cut s.t. no edge in A crosses [S,V -S]. Suppose that uv is a
@@ -379,16 +379,16 @@
  M,M' is a path or an even cycle.
     \end{lemma}
 
-    \begin{theorem}
+    \begin{theorem}{(Berge)}
         A matching M in a graph G is maximum $\iff$ G has no M-augmenting path.
     \end{theorem}
 
-    \begin{theorem}
+    \begin{theorem}{ (Hall's Theorem, P. Hall 1935)}
          An X,Y-bigraph G has a matching that saturates X $\iff$ |N(S)| $\geq$ |S| for all
  S $\subseteq$ X.
     \end{theorem}
 
-    \begin{corollary}
+    \begin{corollary}{(Marriage Theorem)}
         An X,Y-bigraph G, where |X| = |Y|, has a perfect matching $\iff$ |N(S)| $\geq$ |S|
  for all S $\subseteq$ X.
     \end{corollary}
@@ -442,7 +442,7 @@
  and hence $\alpha$(G)+$\beta$(G) = n(G).
     \end{lemma}
 
-    \begin{theorem}
+    \begin{theorem}{(Konig 1931, Egervary 1931)}
         If G is a bipartite graph, then the maximum size of a matching in G is equal
  to the minimum size of a vertex cover of G, i.e., $\alpha$'(G) = $\beta$(G).
     \end{theorem}
@@ -458,13 +458,13 @@
  The minimum size of edge cover of G is denoted by $\beta$'(G).
     \end{definition}
 
-    \begin{theorem}
+    \begin{theorem}{(Gallai 1959)}
         If G is a graph without isolated vertices, then $\alpha$'(G) + $\beta$'(G) = n(G), i.e., the
  maximum size of matching and the minimum size of edge cover sum up to the
  order of G.
     \end{theorem}
 
-    \begin{corollary}
+    \begin{corollary}{(Konig 1916)}
         If G is a bipartite graph with no isolated vertices, then $\alpha$(G) = $\beta$'(G), i.e., the
  size of maximum independent set is equal to the size of minimum edge cover.
     \end{corollary}
