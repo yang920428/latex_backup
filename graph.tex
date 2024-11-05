@@ -486,7 +486,97 @@
  perfect matching: set of edges
     \end{definition}
 
-% \section{HW}
+\section{HW}
+
+\begin{problem}
+ Two people play a game on a graph G, alternately choosing distinct vertices. Player 1 starts by
+ choosing any vertex. Each subsequent choice must be adjacent to the preceding choice (of the other
+ player). Thus together they follow a path. The last player able to move wins.
+ Prove that Player 2 has a winning strategy if G has a perfect matching, and otherwise Player 1 has
+ a winning strategy.
+\end{problem}
+
+\begin{solution}
+ If G has a perfect matching M, then Player 2 cannot lose if they always chooses the vertex paired
+ with the preceding choice of Player 1. There is no draw in the game because the graph is finite and
+ eventually somebody has no vertex to choose. Thus Player 2 can win in this way.
+ If G does not have a perfect matching, let M be a maximum matching of G. Player 1 starts by
+ choosing a vertex u that is M-unsaturated. From now on, when it is Player 2's turn there is no
+ M-unsaturated vertex for them to choose because otherwise all the vertices that have been chosen
+ form an M-augmenting path, implying that M is not maximum. So Player 2 is always forced to
+ choose an M-saturated vertex, and Player 1 cannot lose if they always chooses the vertex paired
+ with the preceding choice of Player 2. Similarly, Player 1 wins because there is no draw.
+\end{solution}
+
+\begin{problem}
+     Let G be an X,Y-bigraph such that |N(S)| > |S| whenever $\emptyset$ $\notin$ S $\subset $ X(S $\neq$ X). Prove that every edge of
+ G belongs to some matching that saturates X.
+\end{problem}
+
+\begin{solution}
+ It suffices to show that for every edge xy where x $\in$ X,y $\in$ Y, bipartite graph G' = G-x-y has
+ a matching that saturates X' = X - {x}. Below we check that the Hall's condition holds for G'.
+ For every vertex set S $\subset$ X',
+ \[
+ \   |N_{G'}(S)| \geq |N_{G}(S)| -1 \geq |S|
+ \]
+ Therefore the Hall's condition holds for G', and the proof is completed.
+\end{solution}
+
+
+\begin{problem}
+Use the Konig-Egervary Theorem to prove that every bipartite graph \( G \) has a matching of size at least \( \frac{e(G)}{\Delta(G)} \), where \( \Delta(G) \) is the maximum degree of all vertices in \( G \). Use this to conclude that every subgraph of \( K_{m,m} \) with more than \( (k - 1)m \) edges has a matching of size at least \( k \).
+\end{problem}
+
+\begin{solution}
+By the Konig-Egervary Theorem, the size of maximum matching is equal to the size of minimum vertex cover. Each vertex in the minimum vertex cover is incident to at most \( \Delta(G) \) edges, so the size of minimum vertex cover
+
+\[
+\beta(G) \geq \frac{e(G)}{\Delta(G)}.
+\]
+
+Thus the size of maximum matching is at least \( \frac{e(G)}{\Delta(G)} \).
+
+For any subgraph \( G \) of \( K_{m,m} \) with more than \( (k - 1)m \) edges, \( e(G) > (k - 1)m \) and \( \Delta(G) \leq m \). Thus
+
+\[
+\alpha'(G) = \beta(G) \geq \frac{e(G)}{\Delta(G)} > k - 1
+\]
+
+and \( \alpha'(G) \geq k \).
+\end{solution}
+
+\begin{problem}
+     Prove that if man x is paired with woman a in some stable matching M, then a does not reject x
+ in the Gale-Shapley Proposal Algorithm with men proposing.
+\end{problem}
+
+\begin{solution}
+     For clarity and brevity we use ax > bx to denote that for x, a ranks higher than b.
+ We prove by contradiction. In a certain run of the algorithm that produces stable matching M',
+ let a rejecting x be the first occurrence of some woman rejecting her partner in M. This rejection
+ is caused by the proposal of man y to a where ya > xa and y is paired with a in M'. y and a are
+ not paired in M, and for M to be a stable matching y is paired with woman b where by > ay. In
+ the same run of the algorithm, y's proposal to a implies that b rejected y. So a rejecting x is not
+ the first such occurrence, because b rejecting y precedes it.
+\end{solution}
+
+\begin{problem}
+    Use Cayley's Formula to prove that the graph obtained from \( K_n \) by deleting an edge has exactly \( (n - 2)n^{n - 3} \) spanning trees.
+
+\end{problem}
+
+\begin{solution}
+By Cayley's Formula \( K_n \) has \( n^{n - 2} \) spanning trees, each with \( n - 1 \) edges. \( K_n \) has \( \binom{n}{2} \) edges. By symmetry and double counting ordered pair (edge of \( K_n \), spanning tree of \( K_n \)) each edge of \( K_n \) is in
+
+\[
+\frac{n^{n - 2} (n - 1)}{\binom{n}{2}} = 2n^{n - 3}
+\]
+
+spanning trees of \( K_n \). Thus for any specific edge \( e \) of \( K_n \) there are \( n^{n - 2} - 2n^{n - 3} = (n - 2)n^{n - 3} \) spanning trees of \( K_n \) not containing \( e \), and this is also the number of spanning trees of \( K_n - e \).
+\end{solution}
+
+
 % \subsection{hw1}
 %     \begin{problem}
 %  Prove that no bipartite graph contains an odd cycle    
