@@ -16,22 +16,26 @@
 \begin{CJK*}{UTF8}{bkai}
 \maketitle
 
-\section*{step1}
+
 we will show the following graph satisfing the statement.
 \begin{figure}[H]
     \centering
     \includegraphics[scale = 0.1]{hw8g.jpg}
     \caption{A simple 3-regular graph with connectivity 1}
 \end{figure}
-since if we remove the vertex u, then the graph will be disconnected. so K(G) = 1 and if we remove the edge uv, G-uv also be disconnected, so k'(G) = 1.
-\section*{step2}
-it is obvious that uv is a cut-edge, and the number of the componets in G-e is 2.
-\section*{step3}
-In the two componets in G-e, the degree of u (in $H_{1}$)and v (in $H_{2}$) is 2, and the degredd of other vertice is 3.
-\section*{step4}
-we know that sum of degree for all vertice in G is even, if we remove the edge uv, the value also is even, since the two componets in G-uv is isomophism. so we can only discuss in $H_{1}$. In $H_{1}$, 
-\section*{step5}
+\section*{step1}
+Since the connectivity \( \kappa(G) = 1 \), it follows that there exists a vertex \( u \) that is a cut-vertex in \( G \). Because the degree of \( u \) is 3, removing \( u \) disconnects \( G \) into multiple components.
 
+By the definition of a cut-vertex, \( u \) must connect to at least two distinct components of the resulting subgraph \( H \). Among these components, there must exist at least one component that is connected to \( u \) by exactly one edge. If we remove this edge, will make the graph be disconnected, so we have $\kappa'(G) = 1$
+
+\section*{step2}
+By connectivity is 1, so we can say that G is connected, and if we remove a cut-edge, then we get G-e have two components.
+\section*{step3}
+Since we only remove an edge, for each component, only the degree of the vertex that is the endpoint of the edge will decrease, while the degree of the other vertex, which has degree 3, remains unchanged.
+\section*{step4}
+Suppose a component with odd order, we have sum of degree of the component is odd (3*odd + even), but we know that sum of degree must be even, we get a contradiction.
+\section*{step5}
+Suppose there are exactly 2 vertice with degree 3 in H, but in the component, we only 3 vertice(2vertice with degree 3 and 1 vertex with degree 2), and the component is simple, so we get the contradiction.
 \section*{step6}
 
 \section*{conclusion}
