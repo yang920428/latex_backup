@@ -3,6 +3,7 @@
 \usepackage{CJKutf8}
 \usepackage{amsthm}
 \usepackage{mdframed}
+\usepackage{float}
 
 % 自定義 "Definition" 環境
 \newmdtheoremenv{definition}{Definition}
@@ -16,9 +17,18 @@
 \maketitle
 
 \section*{step1}
+we will show the following graph satisfing the statement.
+\begin{figure}[H]
+    \includegraphics[scale = 0.1]{hw8g.jpg}
+    \caption{A simple 3-regular graph with connectivity 1}
+\end{figure}
+since if we remove the vertex u, then the graph will be disconnected. so K(G) = 1 and if we remove the edge uv, G-uv also be disconnected, so k'(G) = 1.
 \section*{step2}
+it is obvious that uv is a cut-edge, and the number of the componets in G-e is 2.
 \section*{step3}
+
 \section*{step4}
+
 \section*{step5}
 \section*{step6}
 
