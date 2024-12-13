@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{CJKutf8}
+\usepackage{amsthm}
+\usepackage{mdframed}
+
+% 自定義 "Definition" 環境
+\newmdtheoremenv{definition}{Definition}
+
+\title{hw7}
+\author{110201534 楊成偉}
+\date{}
+
+\begin{document}
+\begin{CJK*}{UTF8}{bkai}
+\maketitle
+
+\section*{step1}
+Since the order of the graph G is even, so if S = $\emptyset$, and the graph is connected, so we get G is connected with even order $\Rightarrow $ o(G-S) = 0.
+\section*{step2}
+for any nonempty S $\subseteq$ V(G) , and H be an odd component of G - S, we claim that must have edges between S and H. Since H is an component of G-S, means H has no path(in G - S) between H and G - S -H, but Since G is connected, so must exists a path between H and S, Since the path can not contain any vertex of G-S-H, so the path must consist of the vertex and edge from H or S, means there should be edges between S and H.
+\section*{step3}
+Since H only has edges between H and S, so if number of edges less than k-1, we deleting all edges between H and S, then it make the graph disconnected. So we can conclude that the number of edges between H and S is at least k-1.
+\section*{step4}
+suppose that there are exactly k-1 edges between H and S, then we have that $k|V(H)|$ = k-1 (to S)+ 2e(H)(edges in H)
+\section*{step5}
+since 2e(H) is even and $|V(H)|$ is odd, if k is even then LHS is even and RHS is odd(contradiction), if k is odd, we also have contradiction.
+so the number of edges between S and H is at least k.
+\section*{step6}
+suppose the contrary that e < k o(G-S), by step5, we know that at least k edges between H(odd component of G-S) and S, so the number of edges between S and G-S at least k o(G-S), we get the contradiction.
+\section*{step7}
+$k|S|$ = 2e(S) + e $\geq$ e
+\section*{step8}
+by step6 and step7
+$k|S|$ $\geq$ e $\geq$ k o(G-S) 
+so we get $|S| \geq o(G-S)$ 
+
+\section*{conclusion}
+by Tutte's theorem, G has a 1-factor.
+
+\end{CJK*}
+\end{document}
