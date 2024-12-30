@@ -198,6 +198,143 @@
  ear decomposition.
     \end{theorem}
 
+    \begin{definition}
+         Given x,y $\in$ V(G), a set S $\subseteq $ V(G)-\{x,y\} is an x,y-separator or x,y-cut if
+ G-S has no x,y-path.
+    \end{definition}
+
+    \begin{definition}
+        $\kappa (x , y) : the minimum size of an x,y-cut.$
+        $\lambda (x , y) :  the maximum size of a set of pairwise internally disjoint x,y-paths.$
+
+        For nonadjacent vertices x,y, clearly $\kappa(x,y) \geq \lambda (x,y)$
+ In fact, $\kappa(x,y) = \lambda(x,y).$
+    \end{definition}
+
+    \begin{theorem}{(Menger’s Theorem for vertex)}
+         If x,y are nonadjacent vertices of a graph G, then $\kappa(x,y) = \lambda(x,y)$.
+    \end{theorem}
+
+    \begin{lemma}
+         x,y are nonadjacent vertices. There are some k internally disjoint x,y-paths,
+ and removing some k vertices disconnects x from y. Then
+ $\kappa$(x,y) = $\lambda$(x,y) = k.
+    \end{lemma}
+
+    \begin{definition}
+        Given x,y $\in$ V(G)
+ $\kappa$'(x,y): the minimum number of edges whose deletion makes y unreachable
+ from x
+ $\lambda$'(x,y): the maximum size of a set of pairwise edge-disjoint x,y-paths
+ Clearly $\kappa$'(x,y) $\geq$ $\lambda$'(x,y)
+
+  In fact, $\kappa$'(x,y) = $\lambda$'(x,y)
+    \end{definition}
+
+    \begin{lemma}
+        x,y are distinct vertices. There are some k pairwise edge-disjoint x,y-paths,
+ and removing some k edges disconnects x from y. Then $\kappa$'(x,y) = $\lambda$'(x,y) = k.
+    \end{lemma}
+
+    \begin{lemma}
+         $\kappa$'(G) = minx,y $\lambda$'(x,y). Equivalently, for every k $\in$ [n(G) - 1], G is
+ k-edge-connected $\iff$ $\lambda$'(x,y) $\geq$ k for every distinct x,y $\in$ V (G).
+    \end{lemma}
+
+    \begin{theorem}{(Menger’s Theorem for edge)}
+         If x,y are distinct vertices of a graph G, then $\kappa'(x,y) = \lambda'(x,y)$.
+    \end{theorem}
+
+    \begin{lemma}
+         Deletion of an edge reduces connectivity $\kappa$(G) by at most 1
+    \end{lemma}
+
+    \begin{lemma}
+        $\kappa$(G) = min{n(G)-1,minx,y $\lambda$(x,y)}. Equivalently, for every k $\in$ [n(G) - 1],
+ G is k-connected $\iff \lambda(x,y) \geq k$ for every distinct x,y $\in$ V(G).
+    \end{lemma}
+
+    \begin{definition}
+        Given a set U of vertices and a vertex x $\notin $ U, an x,U-fan is a set of paths from
+ x to U s.t. any two of them share only the vertex x.
+    \end{definition}
+
+    \begin{lemma}{(Fan Lemma, Dirac 1960)}
+        A graph G is k-connected $\iff$ it has at least k +1 vertices and, for every choice
+ of x,U with |U| $\geq$ k, it has an x,U-fan of size k.
+    \end{lemma}
+
+    \begin{definition}
+        When f is a feasible flow in a network N, an f-augmenting path is a s,t-path
+ P in the underlying graph G s.t. for each e $\in$ E(P)
+ 1. if P follows e in the forward direction, then f(e) < c(e)
+ 2. if P follows e in the backward direction, then 0 < f(e)
+ Let $\epsilon$(e) = c(e) -f(e) when e is forward on P, and let $\epsilon$(e) = f(e) when e is
+ backward on P. The tolerance of P is $min_{e \in E(P)}$ $\epsilon$(e). 
+    \end{definition}
+
+    \begin{lemma}
+         If P is an f-augmenting path with tolerance z, then changing flow by +z on
+ edges followed forward by P and by −z on edges followed backward on P
+ produces a feasible flow f' with val(f')=val(f)+z.
+    \end{lemma}
+
+    \begin{definition}
+        In a network, a s/t cut [S,T] consists of the edges from a source set S to a
+ sink set T, where S,T partition the set of vertices with s $\in$ S,t $\in$ T. The
+ capacity of the cut [S,T], written cap(S,T), is the total of the capacities on
+ the edges with tail in S and head in T. 
+    \end{definition}
+
+    \begin{definition}
+        \begin{itemize}
+            \item net flow out of U:= sum of net flow from vertices in U to vertices not in U.
+ net flow into 
+\item U:= sum of net flow from vertices not in U to vertices in U.
+        \end{itemize}
+    \end{definition}
+
+    \begin{lemma}
+         If f is a feasible flow and [S,T] is an s/t cut, then the net flow out of S and
+ net flow into T equal val(f).
+    \end{lemma}
+
+    \begin{corollary}{(Weak duality, Max-Flow Min-Cut inequality)}
+       If f is a feasible flow and [S,T] is an s/t cut, then val(f) $\leq$ cap(S,T). Thus
+ $max_{f}  val(f) \leq min_{[S,T]} cap(S,T).$ 
+    \end{corollary}
+
+    \begin{corollary}
+         If there is a flow f and an s/t cut [S,T] s.t. cap(S,T)=val(f), then f is a
+ maximum flow and [S,T] is a minimum s/t cut.
+    \end{corollary}
+     If there is a flow f and an s/t cut [S,T] s.t. cap(S,T) = val(f), then f is a
+ maximum flow and [S,T] is a minimum s/t cut.
+    \begin{theorem}{(Max-FlowMin-Cut Theorem,Ford and
+ Fulkerson 1956)}
+         In every network N, the maximum value of a feasible flow equals the minimum
+ value of a s/tcut.
+    \end{theorem}
+
+    \begin{theorem}{(IntegrityTheorem)}
+        If all capacities in a network are integers, then there is a maximum flow f
+ assigning integral flow to every edge.Furthermore,f can be partitioned into
+ flows of unit value a long paths from s to t.
+    \end{theorem}
+
+    \begin{lemma}
+         The maximum flow in N found by Ford-Fulkerson or Edmonds-Karp
+ algorithm corresponds to a maximum matching in G.
+    \end{lemma}
+
+    \begin{theorem}{(Menger’s Theorem for edge in digraphs).}
+        If s,t are vertices of a digraph D, then $\kappa$'(s,t) = $\lambda$'(s,t).
+    \end{theorem}
+
+    \begin{theorem}{(Menger’s Theorem for vertex in digraphs).}
+         If s,t are nonadjacent vertices of a digraph D, then $\kappa$(s,t) = $\lambda$(s,t).
+    \end{theorem}
+
 % 第三部分（Chapter 3）
 \section{Matching and factor}
     \begin{definition}
