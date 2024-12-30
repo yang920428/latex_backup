@@ -26,6 +26,7 @@
 \newtheorem{formula}{formula}
 \newtheorem{problem}{problem}
 \newtheorem{solution}{solution}
+\newtheorem{fact}{fact}
 
 \linespread{0.5}
 % \setlength{\parskip}{0.001em}
@@ -60,20 +61,141 @@
 % \maketitle
 
 % 第一部分（Chapter 1）
-\section{Fundamentals}
-    \begin{definition}
-         A cut-edge or cut-vertex of a graph is an edge or vertex whose deletion
- increases the number of components.
-    \end{definition}
+\section{matching}
+    \begin{theorem}
+     (Tutte 1947). A graph G has a 1-factor $\iff$ 
+     o(G-S) $\leq$ |S| for every S $\subseteq $ V(G).
+    \end{theorem}
 % \vspace{2cm} % 分隔不同章節
 
+    \begin{corollary}
+       (Peterson 1891) Every 3-regular graph with no cut-edge has a 1-factor.  
+    \end{corollary}
+
+    \begin{definition}
+        $deiect_{G} = \max _{S \subseteq V(G)} o(G-S)-|S|$
+    \end{definition}
+
+    \begin{theorem}
+        (Berge-Tutte Formula, Berge 1958). The maximum number of vertices saturated by a matching in G is
+ n(G) -defectG = min
+ $S \subseteq V(G)$
+ (n(G) -(o(G-S)-|S|))
+    \end{theorem}
+
 % 第二部分（Chapter 2）
-\section{Tree}
+\section{Connectivity}
 % \begin{multicol}{2} % 第二部分分欄
     % \switchcolumn[0]
 
-    \begin{theorem}{(Cayley's Formula,)}
-         For a set S $\subseteq$ N of size n, there are $n^{n-2}$ trees with vertex set S.
+    \begin{definition}{}
+         A separating set or vertex cut of a graph G is a set S ⊆ V(G) s.t. G−S has
+ more than one component.
+    \end{definition}
+
+    \begin{definition}
+         The connectivity of G, written $\kappa$(G), is the minimum size of a vertex set S s.t.
+ G-S is disconnected or has only one vertex. A graph G is k-connected if
+ $\kappa$(G) $\geq$ k, i.e., G-S is connected with at least two vertices for every
+ k -1-vertex set S.
+    \end{definition}
+
+    \begin{lemma}
+        $\kappa$(G) = n(G)-1 $\iff$ G contains Kn(G), i.e., every vertex is adjacent to every
+ other vertex.
+    \end{lemma}
+
+    \begin{definition}
+         A disconnecting set of edges is a set F $\subseteq $ E(G) s.t. G-F has more than one
+ component.
+    \end{definition}
+
+    \begin{definition}
+         A graph is k-edge-connected if every disconnecting set has at least k edges.
+ The edge-connectivity of G, written $
+ \kappa$'(G), is the minimum size of a
+ disconnecting set or equivalently, the maximum k s.t. G is k-edge-connected
+    \end{definition}
+
+    \begin{fact}
+    Every edge cut is a disconnecting set.
+    \end{fact}
+
+    \begin{fact}
+         Every minimal disconnecting set of edges is an edge cut.
+    \end{fact}
+
+    \begin{definition}
+        $\delta (G) = minimum vertex degree of G$
+    \end{definition}
+
+    \begin{theorem}{ (Whitney 1932).}
+         $\kappa (G) \leq \kappa '(G) \leq \delta (G)$ for every graph G.
+    \end{theorem}
+
+    \begin{theorem}
+         If G is a 3-regular graph of order more than 2, then $\
+         kappa $(G) = $\kappa $'(G).
+    \end{theorem}
+
+    \begin{definition}
+         Two paths are internally disjoint if they do not have common internal vertices.
+         Two x,y-paths are edge-disjoint if they do not share any edges
+        \end{definition}
+
+    \begin{theorem}{(Whitney)}
+         A graph G having at least 3 vertices is 2-connected $\iff$ for every distinct
+ u,v $\in$ V(G) there exist internally disjoint u,v-paths in G.
+    \end{theorem}
+
+    \begin{lemma}{(Expansion Lemma)}
+        If G is k-connected, and G' is obtained from G by adding a new vertex y with
+ at least k neighbors in G, then G' is k-connected.
+    \end{lemma}
+
+    \begin{theorem}
+         For a graph G of order at least 3, the following conditions are equivalent and
+ characterize 2-connected graphs.
+
+ \begin{itemize}
+    \item G is connected and has no cut-vertex.
+ \item For all x,y $\in$ V(G) there are internally disjoint x,y-paths.
+ \item For all x,y $\in$ V(G) there is a cycle through x and y.
+ \item $\delta$(G) $\geq$ 1 and every pair of edges in G lies on a common cycle.\end{itemize}
+    \end{theorem}
+
+    \begin{definition}
+         A subdivision of an edge e = xy is a replacement of e with path x,z,y where z
+ is a new vertex.
+    \end{definition}
+
+    \begin{corollary}
+         If G is 2-connected, then the graph G' obtained by subdivision of an edge
+ e =xy of G is 2-connected.
+    \end{corollary}
+
+    \begin{definition}
+         An ear of a graph G is a nontrivial path in G whose endpoints have degree at
+ least 3 and all its internal vertices have degree 2.
+    \end{definition}
+
+    \begin{definition}
+         A decomposition of a graph is a list of subgraphs s.t. every edge appears in
+ exactly one subgraph in the list.
+    \end{definition}
+
+    \begin{definition}
+         An ear decomposition of G is a 
+         decomposition P0,...,Pk s.t. 
+         P0 is a cycle of
+ length at least 3 and Pi for i $\in [k]$ is an 
+ ear of P0 $\cup $···$\cup $Pi
+    \end{definition}
+
+    \begin{theorem}{(Whitney)}
+        AgraphGis2-connected $\iff$ it has a near decomposition.Furthermore,every
+ cycle of length at least 3 in a 2-connected graph G is the initial cycle in some
+ ear decomposition.
     \end{theorem}
 
 % 第三部分（Chapter 3）
