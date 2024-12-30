@@ -1,0 +1,148 @@
+% !TEX root = graph2.tex
+
+\documentclass[twocolumn]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{CJKutf8}
+% \usepackage{amsthm}
+\usepackage{mdframed}
+\usepackage{multicol} % 用於分欄
+\usepackage{geometry} % 用於調整頁面尺寸和邊距
+\usepackage{amsmath}
+\usepackage{titlesec}
+
+\newtheorem{example}{example}             % 整体编号
+\newtheorem{algorithm}{algorithm}
+\newtheorem{theorem}{theorem}[section]  % 按 section 编号
+\newtheorem{definition}{definition}
+\newtheorem{axiom}{axiom}
+\newtheorem{property}{property}
+\newtheorem{proposition}{proposition}
+\newtheorem{lemma}{lemma}
+\newtheorem{corollary}{corollary}
+\newtheorem{remark}{remark}
+\newtheorem{condition}{condition}
+\newtheorem{conclusion}{conclusion}
+\newtheorem{assumption}{assumption}
+\newtheorem{formula}{formula}
+\newtheorem{problem}{problem}
+\newtheorem{solution}{solution}
+
+\linespread{0.5}
+% \setlength{\parskip}{0.001em}
+
+\setlength{\topsep}{0.1em} % 環境之上和之下的距離
+\setlength{\partopsep}{0pt} % 環境和上下文之間的額外距離
+\setlength{\itemsep}{0.5em} % 項目之間的距離
+\setlength{\parsep}{0pt} % 段落之間的距離
+
+\titlespacing*{\section}{0pt}{0pt}{0pt}
+
+% 設定頁面尺寸和邊距
+\geometry{
+    top=0.5cm,
+    bottom=0.5cm,
+    left=0.5cm,
+    right=0.5cm
+}
+
+
+% 自定義 "Definition" 環境
+% \newmdtheoremenv{definition}{Definition}
+% \theoremstyle{mystyle}
+
+\title{}
+% \author{}
+% \date{}
+
+\begin{document}
+\begin{CJK*}{UTF8}{bkai}
+
+% \maketitle
+
+% 第一部分（Chapter 1）
+\section{Fundamentals}
+    \begin{definition}
+         A cut-edge or cut-vertex of a graph is an edge or vertex whose deletion
+ increases the number of components.
+    \end{definition}
+% \vspace{2cm} % 分隔不同章節
+
+% 第二部分（Chapter 2）
+\section{Tree}
+% \begin{multicol}{2} % 第二部分分欄
+    % \switchcolumn[0]
+
+    \begin{theorem}{(Cayley's Formula,)}
+         For a set S $\subseteq$ N of size n, there are $n^{n-2}$ trees with vertex set S.
+    \end{theorem}
+
+% 第三部分（Chapter 3）
+\section{Matching and factor}
+    \begin{definition}
+        A matching in a graph G is a set of non-loop edges with no shared endpoints.
+ The vertices incident to the edges of a matching M are saturated by M or
+ M-saturated; the others are M-unsaturated. A perfect matching in a graph is
+ a matching that saturates every vertex. The size of a matching is the number
+ of edges in it.
+    \end{definition}
+
+\section{HW}
+
+\begin{problem}
+ Two people play a game on a graph G, alternately choosing distinct vertices. Player 1 starts by
+ choosing any vertex. Each subsequent choice must be adjacent to the preceding choice (of the other
+ player). Thus together they follow a path. The last player able to move wins.
+ Prove that Player 2 has a winning strategy if G has a perfect matching, and otherwise Player 1 has
+ a winning strategy.
+\end{problem}
+
+\begin{solution}
+ If G has a perfect matching M, then Player 2 cannot lose if they always chooses the vertex paired
+ with the preceding choice of Player 1. There is no draw in the game because the graph is finite and
+ eventually somebody has no vertex to choose. Thus Player 2 can win in this way.
+ If G does not have a perfect matching, let M be a maximum matching of G. Player 1 starts by
+ choosing a vertex u that is M-unsaturated. From now on, when it is Player 2's turn there is no
+ M-unsaturated vertex for them to choose because otherwise all the vertices that have been chosen
+ form an M-augmenting path, implying that M is not maximum. So Player 2 is always forced to
+ choose an M-saturated vertex, and Player 1 cannot lose if they always chooses the vertex paired
+ with the preceding choice of Player 2. Similarly, Player 1 wins because there is no draw.
+\end{solution}
+
+% \subsection{hw1}
+%     \begin{problem}
+%  Prove that no bipartite graph contains an odd cycle    
+%     \end{problem}
+    
+%     \begin{solution}
+%     Suppose that A, B-bigraph G contains an odd cycle C = (v1, v2, . . . , v 2k+1). Without loss of generality suppose that v1 $\in$ A. Since G is bipartite and v1 v2 $\in$ E(G), v2 $\in$ B. Similarly, v2 v3 $\in$ E(G)
+% and thus v3 $\in$ A, and so on. So v2k+1 $\in$ A. However v1 v2k+1 $\in$ E(G) and yet v1, v 2k+1 $\in$ A, a
+% contradiction to the hypothesis that G is an A, B-bigraph.
+
+%     \end{solution}
+    
+% \subsection{hw2}
+%     \begin{problem}
+%         Given a simple graph G, $\bar{G}$ is the simple graph with vertex set V(G) such that for any distinct
+%  vertices u,v $\in$ V (G), u,v are adjacent in $\bar{G}$ if and only if u,v are not adjacent in G.
+%  Prove that at least one of G and $\bar{G}$ is connected.
+%     \end{problem}
+
+%     \begin{solution}
+%         If G is connected then we are done, so suppose that G is disconnected and has multiple components.
+% We aim to prove that any pair of vertices x, y are connected in $\bar{G}$. If x, y belong to different
+% components in G, then xy $\notin$ E(G) and xy $\in$ E($\bar{G}$). If x, y belong to the same component C in G,
+% then fix a vertex v in a different component in G. Both x, y are adjacent to v in $\bar{G}$, thus x, y are
+% connected in $\bar{G}$.
+
+%     \end{solution}
+
+% \subsection{hw3}
+
+% \subsection{hw4}
+
+% \subsection{hw5}
+
+% \subsection{hw6}
+
+\end{CJK*}
+\end{document}
