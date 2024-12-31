@@ -336,38 +336,264 @@
     \end{theorem}
 
 % 第三部分（Chapter 3）
-\section{Matching and factor}
+\section{Planar graph}
     \begin{definition}
-        A matching in a graph G is a set of non-loop edges with no shared endpoints.
- The vertices incident to the edges of a matching M are saturated by M or
- M-saturated; the others are M-unsaturated. A perfect matching in a graph is
- a matching that saturates every vertex. The size of a matching is the number
- of edges in it.
+       A curve is the image of a continuous map from [0,1] to ${R}^{2}$. A polygonal curve
+ is a curve composed of finitely many line segments. It is a polygonal u,v-curve
+ when it starts at u and ends at v.
     \end{definition}
 
-\section{HW}
+    \begin{definition}
+        A drawing of a graph G is a function f defined on V(G)$\cup $E(G) that assigns
+ each vertex v a point f(v) in the plane and assigns each edge with endpoints
+ u,v a polygonal f(u),f(v)-curve. The images of vertices are distinct. A point
+ in f(e) $\cap $ f(e') that is not a common endpoint is a crossing.
+    \end{definition}
 
-\begin{problem}
- Two people play a game on a graph G, alternately choosing distinct vertices. Player 1 starts by
- choosing any vertex. Each subsequent choice must be adjacent to the preceding choice (of the other
- player). Thus together they follow a path. The last player able to move wins.
- Prove that Player 2 has a winning strategy if G has a perfect matching, and otherwise Player 1 has
- a winning strategy.
-\end{problem}
+    \begin{definition}
+        A graph is planar if it has a drawing without crossings. Such a drawing is a
+ planar embedding of G. A plane graph is a particular planar embedding of a
+ planar graph.
+ A curve is closed if its first and last points are the same. It is simple if it has
+ no repeated points except possibly first=last. An open set in the plane is a set
+ U $\subseteq $R2 s.t. for every p $\in$ U, all points within some small distance from p
+ belong to U. A region is an open set U that contains a polygonal u,v-curve
+ for every pair of u,v $\in$ U.
+ The faces of a plane graph are the maximal regions of the plane that contain
+ no point used in the embedding.
+ The length l(F) of a face F in a plane graph G is the total length of the
+ closed walk(s) in G bounding the face F.
+    \end{definition}
 
-\begin{solution}
- If G has a perfect matching M, then Player 2 cannot lose if they always chooses the vertex paired
- with the preceding choice of Player 1. There is no draw in the game because the graph is finite and
- eventually somebody has no vertex to choose. Thus Player 2 can win in this way.
- If G does not have a perfect matching, let M be a maximum matching of G. Player 1 starts by
- choosing a vertex u that is M-unsaturated. From now on, when it is Player 2's turn there is no
- M-unsaturated vertex for them to choose because otherwise all the vertices that have been chosen
- form an M-augmenting path, implying that M is not maximum. So Player 2 is always forced to
- choose an M-saturated vertex, and Player 1 cannot lose if they always chooses the vertex paired
- with the preceding choice of Player 2. Similarly, Player 1 wins because there is no draw.
-\end{solution}
+    \begin{theorem}{(RestrictedJordanCurveTheorem)}
+         A simple closed polygonal curve C consisting of finitely many segments
+ partitions the plane into exactly two faces,each having C as boundary.
+    \end{theorem}
 
-% \subsection{hw1}
+    \begin{proposition}
+        If l(Fi) denotes the length of face Fi in a plane graph G, then
+        $\sum_{i} l(F_{i}) = 2 e(G)$
+    \end{proposition}
+
+    \begin{theorem}{(Euler1758)}
+        If a connected plane graph G has exactly n vertices,e edges,and f faces, then
+ n-e+f=2.
+    \end{theorem}
+
+    \begin{corollary}
+        All planar embeddings of a connected planar graph G have the same number of
+ faces.
+    \end{corollary}
+
+    \begin{theorem}
+        If G is a simple planar graph with at least 3 vertices, then e(G)$\leq$3n(G)-6.
+ Also if G is triangle-free, thene(G)$\leq$2n(G)-4.
+    \end{theorem}
+
+    \begin{corollary}
+        Every simple planar graph G has $\delta(G) \leq 5$
+    \end{corollary}
+
+    \begin{lemma}
+        A graph embeds in the plane $\iff$ it embeds on a sphere.
+    \end{lemma}
+
+    \begin{definition}
+         Informally, a regular polyhedron is a solid whose boundary consists of regular
+ polygons of the same length k, with the same number of faces d meeting at
+ each vertex. A Platonic solid is a convex regular polyhedron.
+    \end{definition}
+
+    \begin{corollary}
+        There are at most 5 platonic solids.
+    \end{corollary}
+
+    \begin{definition}
+        A maximal planar graph G is a simple planar graph s.t. adding any non-loop
+ edge not parallel to any edge of G results in a nonplanar graph.
+ 
+ A triangulation is a simple plane graph where every face boundary is a 3-cycle.
+    \end{definition}
+    \begin{proposition}
+         Let n$\geq$ 3.For a simple n-vertex plane graph G, the following are equivalent.
+ (A)G has 3n-6 edges.
+ (B)G is a triangulation.
+ (C)G is a maximal plane graph.
+    \end{proposition}
+
+    \begin{definition}
+        A subdivision of an edge e = xy is a replacement of e with path x,z,y where z
+ is a new vertex.
+ 
+ A graph H is a subdivision of a graph G if H can be obtained from G by a
+ sequence of subdivisions of edges.
+    \end{definition}
+
+    \begin{fact}
+        Subdividing edges does not affect planarity.
+    \end{fact}
+
+    \begin{proposition}
+         If a graph G has a subgraph that is a subdivision of K5 or K3,3, then G is not
+ planar.
+    \end{proposition}
+
+    \begin{corollary}
+        Petersen graph is not planar.
+    \end{corollary}
+
+    \begin{theorem}{(Kuratowski 1930)}
+         A graph is planar $\iff$ it does not contain a subdivision of K5 nor K3,3
+    \end{theorem}
+
+    \begin{definition}
+         A graph H is a minor of a graph G if H can be obtained from G by a
+ sequence of these operations in any order:
+ 1. deleting an edge
+ 2. contracting an edge
+    \end{definition}
+
+    \begin{theorem}{(Wagner's Theorem)}
+         A graph G is planar $\iff$ it does not contain K5 nor K3,3 as minors.
+    \end{theorem}
+
+    \begin{definition}
+        A graph is outerplanar if it has an embedding with every vertex on the
+ boundary of the unbounded face. An outerplane graph is such an embedding
+ of an outerplanar graph.
+    \end{definition}
+
+    \begin{theorem}
+         A graph G is outerplanar $\iff$ G does not contain subdivisions of K4 nor K2,3.
+    \end{theorem}
+
+\section{Coloring}
+\begin{definition}
+        $\alpha$(G): maximum size of independent set
+
+ $\alpha$'(G): maximum size of matching
+ $\beta$(G): minimum size of vertex cover
+ $\beta$'(G): minimum size of edge cover
+    \end{definition}
+
+    \begin{proposition}
+        $\chi(G) \geq \max \{ \omega(G) , \frac{n(G)}{\alpha(G)} \}$
+    \end{proposition}
+
+    \begin{proposition}
+        $\chi(G) \leq \Delta(G) + 1$
+    \end{proposition}
+
+    \begin{definition}
+         A graph G is k-degenerate if for every subgraph H of G, $\delta(H) \leq k$, i.e., every subgraph of G has a vertex with degree at most k
+    \end{definition}
+
+    \begin{proposition}
+        A graph G is k-degenerate $\iff$ V(G) can be ordered v1,v2,...,vn s.t. for every
+ i $\in$ \{2,3,...,n\} vertex vi has at most k neighbors in \{v1,v2,...,vi-1\}.
+    \end{proposition}
+
+    \begin{proposition}
+         Every k-degenerate graph G is k+1-colorable.
+    \end{proposition}
+
+    \begin{corollary}
+         Every planar graph G is 6-colorable.
+    \end{corollary}
+
+    \begin{theorem}{(Mycielski's construction)}
+        From a k-chromatic triangle-free graph G, Mycielski's construction produces a k+1-chromatic triangle-free graph G′.
+
+    \end{theorem}
+
+    \begin{theorem}{(Brooks 1941)}
+        If G is a connected graph other than a clique or an odd cycle, then
+        $\chi(G) \leq \Delta(G)$
+
+    \end{theorem}
+
+    \begin{theorem}{(Appel-Haken-Koch 1977)}
+         Every planar graph is 4-colorable.
+    \end{theorem}
+
+    \begin{definition}
+        A \(k\)-edge-coloring of \(G\) is a labeling \(f : E(G) \to [k]\). The labels are colors. The 
+edges of one color form a color class. A \(k\)-edge-coloring is proper if incident 
+edges have different labels; that is, if each color class is a matching. A graph is 
+\(k\)-edge-colorable if it has a proper \(k\)-edge-coloring. The edge-chromatic 
+number \(\chi'(G)\) of a loopless graph \(G\) is the least \(k\) such that \(G\) is \(k\)-edge-colorable. \(G\) 
+is \(k\)-edge-chromatic \(\iff \chi'(G) = k\).
+
+Loops are excluded because they are incident to themselves. 
+However, we allow multiple edges and they affect edge-coloring.
+
+    \end{definition}
+
+    \begin{proposition}
+        $\chi'(G) \geq \Delta(G)$
+
+        $\chi'(G) \leq 2 \Delta(G)-1$
+    \end{proposition}
+
+    \begin{theorem}
+        The Petersen graph is not 3-edge-colorable. Thus, it is 4-edge-chromatic.
+    \end{theorem}
+
+    \begin{theorem}{(Konig 1916)}
+         If G is bipartite, then $\chi'(G) = \Delta(G)$
+    \end{theorem}
+
+\section{Hamiltonian cycle}
+
+    \begin{definition}
+        c(G) =  number of components of G.
+    \end{definition}
+
+    \begin{proposition}
+         If G is Hamiltonian, then c(G -S) $\leq$ |S| for all $\emptyset \neq  S \subseteq  V(G)$.
+    \end{proposition}
+
+    \begin{corollary}
+        Every Hamiltonian graph is 2-connected.
+    \end{corollary}
+
+    \begin{theorem}{(Dirac 1952)}
+        If G is a simple n-vertex graph with n $\geq$ 3,$\delta(G) \geq$ n/2, then G is Hamiltonian.
+    \end{theorem}
+
+    \begin{lemma}{(Ore 1960)}
+        Let G be a simple graph. If x, y are distinct nonadjacent vertices of G with 
+deg(x) + deg(y) $\geq$ n(G), then G is Hamiltonian $\iff$ G + xy is Hamiltonian.
+
+    \end{lemma}
+
+    \begin{corollary}
+         Let G be a simple graph. If deg(u)+deg(v) $\geq$ n(G) for every nonadjacent
+ vertices u,v, then G is Hamiltonian.
+    \end{corollary}
+
+    \begin{definition}
+        The Hamiltonian closure of a graph G, denoted C(G), is the graph with vertex
+ set V (G) obtained from G by iteratively adding edges joining pairs of
+ nonadjacent vertices whose degree sum is at least n(G), until no such pair
+ remains.
+    \end{definition}
+
+    \begin{theorem}{(Bondy-Chvatal 1976)}
+         A simple n-vertex graph is Hamiltonian $\iff$ its closure is Hamiltonian.
+    \end{theorem}
+
+    \begin{lemma}
+        The closure of G is well-defined, i.e., the order in which to add edges does not
+ affect the resulting graph.
+    \end{lemma}
+
+    \begin{theorem}
+        Petersen's graph is not Hamiltonian.
+    \end{theorem}
+
+    
+    % \subsection{hw1}
 %     \begin{problem}
 %  Prove that no bipartite graph contains an odd cycle    
 %     \end{problem}
